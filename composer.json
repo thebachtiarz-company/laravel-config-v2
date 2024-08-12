@@ -1,0 +1,42 @@
+{
+    "name": "thebachtiarz-company/laravel-config-v2",
+    "description": "Config module for Laravel Project v2",
+    "type": "library",
+    "version": "0.0.1",
+    "require": {
+        "php": "^8.2",
+        "laravel/framework": "^11.20",
+        "thebachtiarz-company/laravel-base-v2": "^0.0.2"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "TheBachtiarz\\Config\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "thebachtiarz-company",
+            "email": "thebachtiarz.company@gmail.com"
+        }
+    ],
+    "keywords": [
+        "laravel",
+        "thebachtiarz",
+        "config"
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "TheBachtiarz\\Config\\Providers\\ServiceProvider"
+            ]
+        }
+    },
+    "homepage": "https://github.com/thebachtiarz-company/laravel-config-v2",
+    "support": {
+        "issues": "https://github.com/thebachtiarz-company/laravel-config-v2/issues",
+        "source": "https://github.com/thebachtiarz-company/laravel-config-v2"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
