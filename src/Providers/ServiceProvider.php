@@ -41,7 +41,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         $configName  = 'tbconfig';
         $publishName = 'thebachtiarz-config';
 
-        $this->publishes([__DIR__ . "/../../config/$configName.php" => config_path("$configName.php")], "$publishName-config");
+        $this->publishes([__DIR__ . "/../../configs/$configName.php" => config_path("$configName.php")], "$publishName-config");
         $this->publishes([__DIR__ . '/../../database/migrations' => database_path('migrations')], "$publishName-migrations");
     }
 }
