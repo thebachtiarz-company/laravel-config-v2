@@ -2,11 +2,11 @@
     "name": "thebachtiarz-company/laravel-config-v2",
     "description": "Config module for Laravel Project v2",
     "type": "library",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "require": {
         "php": "^8.2",
         "laravel/framework": "^11.20",
-        "thebachtiarz-company/laravel-base-v2": "^0.0.2"
+        "thebachtiarz-company/laravel-base-v2": "^0.0.3"
     },
     "license": "MIT",
     "autoload": {
@@ -28,7 +28,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "TheBachtiarz\\Config\\Providers\\ServiceProvider"
+                "TheBachtiarz\\Config\\Providers\\ServiceProvider",
+                "TheBachtiarz\\Config\\Providers\\RouteServiceProvider"
             ]
         }
     },
