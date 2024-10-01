@@ -2,7 +2,6 @@
 
 namespace TheBachtiarz\Config\Helpers;
 
-use TheBachtiarz\Base\Exceptions\BaseException;
 use TheBachtiarz\Config\Enums\Services\ConfigIsEncryptEnum;
 use TheBachtiarz\Config\Interfaces\Models\ConfigInterface;
 use TheBachtiarz\Config\Interfaces\Repositories\ConfigRepositoryInterface;
@@ -23,7 +22,7 @@ class ConfigHelper
 
         if (!$entity) {
             if (!$value) {
-                throw new BaseException(message: sprintf("Config with path '%s' not found", $path), code: 404);
+                return null;
             }
 
             CREATE:
