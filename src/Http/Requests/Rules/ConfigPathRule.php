@@ -14,7 +14,7 @@ class ConfigPathRule extends AbstractRule
         return [
             self::PATH => [
                 'required',
-                'alpha_dash:ascii',
+                'regex:/^[a-zA-Z0-9._-]+$/',
             ],
         ];
     }

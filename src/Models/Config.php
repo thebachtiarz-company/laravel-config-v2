@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Str;
 use TheBachtiarz\Base\Models\AbstractModel;
+use TheBachtiarz\Config\Helpers\DataValueHelper;
 use TheBachtiarz\Config\Interfaces\Models\ConfigInterface;
 use TheBachtiarz\Config\Models\Factories\ConfigFactory;
 
@@ -25,6 +26,13 @@ class Config extends AbstractModel implements ConfigInterface
     }
 
     // ? Public Methods
+
+    public function valueFormatted(): Attribute
+    {
+        return Attribute::make(
+            get: fn(): mixed => DataValueHelper::modifyValueToDiffType($this->getValue(), ['array' => fn($input): string => serialize($input)]),
+        );
+    }
 
     // ? Protected Methods
 

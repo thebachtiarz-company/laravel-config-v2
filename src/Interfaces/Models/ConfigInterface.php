@@ -24,6 +24,8 @@ interface ConfigInterface extends ModelInterface
     public const string ATTRIBUTE_IS_ENCRYPT = 'is_encrypt';
     public const string ATTRIBUTE_VALUE = 'value';
 
+    public const string VALUE_FORMATTED = 'value_formatted';
+
     // ? Getter Modules
 
     /**
