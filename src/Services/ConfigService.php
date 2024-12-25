@@ -2,6 +2,7 @@
 
 namespace TheBachtiarz\Config\Services;
 
+use Illuminate\Support\Facades\Cache;
 use TheBachtiarz\Base\DTOs\Services\ResponseDataDTO;
 use TheBachtiarz\Base\Enums\Services\ResponseConditionEnum;
 use TheBachtiarz\Base\Enums\Services\ResponseHttpCodeEnum;
@@ -75,12 +76,17 @@ class ConfigService extends AbstractService implements ConfigServiceInterface
                 $configEntity->setValue($value);
             }
 
+            $process = $this->configRepository->createOrUpdate($configEntity);
+
+            Cache::forever($process->getPath(), $process->getValue());
+
             $this->setResponse(new ResponseDataDTO(
                 condition: ResponseConditionEnum::TRUE,
                 status: ResponseStatusEnum::SUCCESS,
                 httpCode: ResponseHttpCodeEnum::OK,
                 message: 'Create or update config',
-                data: $this->configRepository->createOrUpdate($configEntity)?->simpleListMap(),
+                data: $process->simpleListMap(),
+                model: $process,
             ));
         } catch (\Throwable $th) {
             $this->log($th, 'error');
